@@ -10,11 +10,8 @@ import (
 func main() {
 	router := gin.Default();
 
-	router.GET("/", func(ctx *gin.Context) {
-		ctx.String(200,"Hello World!");
-	})
-
-	routes.SetupCoreRoutes(asdf)
+    middleware.SetupMiddleware(router)
+	routes.SetupCoreRoutes(router)
 
 	router.Run();
 }

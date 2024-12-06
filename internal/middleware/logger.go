@@ -1,13 +1,14 @@
 package middleware
+
 import (
 	"github.com/gin-gonic/gin"
 	"time"
+    "log"
 )
 
 func Logger() gin.HandlerFunc {
 	return func(ctx *gin.Context) {
 		t := time.Now()
-
 
 		// after request
 		latency := time.Since(t)
@@ -17,6 +18,6 @@ func Logger() gin.HandlerFunc {
 		status := ctx.Writer.Status()
 		log.Println(status)
 
-		c.Next()
+		ctx.Next()
 	}
 }
