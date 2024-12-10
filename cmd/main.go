@@ -13,5 +13,6 @@ func main() {
 	middleware.SetupMiddleware(router)
 	routes.SetupCoreRoutes(router)
 
-	router.Run()
+
+	router.Run();
 }

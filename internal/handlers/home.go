@@ -5,5 +5,12 @@ import (
 )
 
 func HomeHandler(ctx *gin.Context) {
-	ctx.String(200, "Hello World!")
+	name := ctx.Query("name")
+	if name == "" {
+		ctx.String(400, "Not found")
+		return
+	}
+
+	ctx.String(200, "Hello world")
+
 }
