@@ -2,9 +2,10 @@ package routes
 
 import (
 	"github.com/gin-gonic/gin"
-	"manga-notifier/internal/handlers"
+	"server/internal/handlers"
 )
 
 func SetupCoreRoutes(router *gin.Engine) {
 	router.GET("/", handlers.HomeHandler)
+	SetupUserRoutes(router)
 }

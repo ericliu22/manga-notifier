@@ -7,4 +7,5 @@ import (
 func SetupMiddleware(router *gin.Engine) {
 	router.Use(Logger())
 	router.Use(EmailClient())
+	router.Use(DatabaseMiddleware())
 }

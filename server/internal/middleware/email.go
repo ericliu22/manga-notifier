@@ -25,17 +25,17 @@ func EmailClient() gin.HandlerFunc {
 
 func setupMailClient() (*mail.Client, error) {
 	username := os.Getenv("EMAIL_USERNAME")
-	if (username == "") {
+	if username == "" {
 		return nil, errors.New("Failed to get env var EMAIL_USERNAME")
 	}
 
 	password := os.Getenv("EMAIL_PASSWORD")
-	if (password == "") {
+	if password == "" {
 		return nil, errors.New("Failed to get env var EMAIL_PASSWORD")
 	}
 
 	client, err := mail.NewClient(
-		"manganotifier", //This will be our domain like manganotifier.com
+		"smtp.manganotifier.com", //This will be our domain like manganotifier.com
 		mail.WithSMTPAuth(mail.SMTPAuthPlain),
 		mail.WithUsername(username),
 		mail.WithPassword(password),

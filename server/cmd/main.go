@@ -1,8 +1,8 @@
 package main
 
 import (
-	"manga-notifier/internal/middleware"
-	"manga-notifier/internal/routes"
+	"server/internal/middleware"
+	"server/internal/routes"
 
 	"github.com/gin-gonic/gin"
 )
@@ -13,6 +13,5 @@ func main() {
 	middleware.SetupMiddleware(router)
 	routes.SetupCoreRoutes(router)
 
-
-	router.Run();
+	router.Run()
 }
