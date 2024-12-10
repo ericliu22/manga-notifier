@@ -5,5 +5,5 @@ import (
 )
 
 func HomeHandler(ctx *gin.Context) {
-		ctx.String(200,"Hello World!");
+	ctx.String(200, "Hello World!")
 }
