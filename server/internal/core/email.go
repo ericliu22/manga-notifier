@@ -1,8 +1,9 @@
 package core
 
 import (
-	"github.com/wneessen/go-mail"
 	"log"
+
+	"github.com/wneessen/go-mail"
 )
 
 func SendEmail(to string, subject string, body string) error {

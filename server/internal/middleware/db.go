@@ -2,6 +2,7 @@ package middleware
 
 import (
 	"context"
+	"errors"
 	"log"
 	"os"
 
@@ -20,6 +21,17 @@ func DatabaseMiddleware() gin.HandlerFunc {
 		ctx.Set("db", db)
 		ctx.Next()
 	}
+}
+
+func GetDatabasePool(ctx *gin.Context) (*pgxpool.Pool, error) {
+	var dbpool *pgxpool.Pool
+
+	dbpool = ctx.Value("db").(*pgxpool.Pool)
+	if dbpool == nil {
+		return nil, errors.New("Failed to get db from context")
+	}
+
+	return dbpool, nil
 }
 
 func setupDatabase() (*pgxpool.Pool, error){

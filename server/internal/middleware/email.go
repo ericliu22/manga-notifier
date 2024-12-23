@@ -23,6 +23,17 @@ func EmailClient() gin.HandlerFunc {
 	}
 }
 
+func GetEmailClient(ctx *gin.Context) (*mail.Client, error) {
+	var mailClient *mail.Client
+
+	mailClient = ctx.Value("mailClient").(*mail.Client)
+	if mailClient == nil {
+		return nil, errors.New("Failed to get mailClient from context")
+	}
+
+	return mailClient, nil
+}
+
 func setupMailClient() (*mail.Client, error) {
 	username := os.Getenv("EMAIL_USERNAME")
 	if username == "" {
