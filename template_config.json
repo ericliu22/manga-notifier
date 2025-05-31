@@ -1,0 +1,12 @@
+{
+  "description": "A modern Go project template with Go modules support. Features idiomatic project structure, efficient dependency management, and proper package organization. Includes testing setup, Go workspace configuration, and common Go patterns implementation.",
+  "required_fields": [],
+  "required_files": [
+    "main.go",
+    "go.mod"
+  ],
+  "lang": "Go",
+  "framework": "Go",
+  "style": "go_template",
+  "scene": "default_go_project"
+} 
